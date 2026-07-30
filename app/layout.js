@@ -51,7 +51,11 @@ export const metadata = {
   },
   formatDetection: { email: false, address: false, telephone: false },
   referrer: 'strict-origin-when-cross-origin',
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: [{ url: '/logo.jpg', type: 'image/jpeg', sizes: '150x150' }],
+    shortcut: ['/logo.jpg'],
+    apple: [{ url: '/logo.jpg', type: 'image/jpeg', sizes: '150x150' }],
+  },
   manifest: '/manifest.webmanifest',
 }
 
