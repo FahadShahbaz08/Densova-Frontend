@@ -4,8 +4,8 @@ import { adminAPI } from '../../services/api'
 import { useAdminUI } from '../../components/admin/AdminContext'
 
 const fmt = (n) => 'Rs ' + Number(n || 0).toLocaleString('en-PK')
-const fmtDate = (d) => d ? new Date(d).toLocaleString('en-PK', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'Ã¢â‚¬â€'
-const fmtDateShort = (d) => d ? new Date(d).toLocaleDateString('en-PK', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Ã¢â‚¬â€'
+const fmtDate = (d) => d ? new Date(d).toLocaleString('en-PK', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'
+const fmtDateShort = (d) => d ? new Date(d).toLocaleDateString('en-PK', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'
 
 const STATUS_STYLE = {
   pending:          { bg: 'rgba(212,160,78,0.14)',  fg: '#a47718', dot: '#d4a04e' },
@@ -59,7 +59,7 @@ export default function AdminOrderDetailPage() {
     setLoading(true)
     try {
       const res = await adminAPI.orders.show(id)
-      // Laravel JsonResource wraps single resources in { data: {...} } Ã¢â‚¬â€ unwrap it
+      // Laravel JsonResource wraps single resources in { data: {...} } — unwrap it
       const orderData = res.data?.data || res.data
       setOrder(orderData)
       setNotes(orderData?.admin_notes || '')
@@ -109,12 +109,12 @@ export default function AdminOrderDetailPage() {
   }
 
   const handleDownloadPdf = () => {
-    // Same as print Ã¢â‚¬â€ user picks "Save as PDF" in the browser print dialog
+    // Same as print — user picks "Save as PDF" in the browser print dialog
     handlePrintFull()
   }
 
   if (loading) {
-    return <div className="view"><div className="card" style={{ padding: 60, textAlign: 'center', color: 'var(--muted)' }}>Loading orderÃ¢â‚¬Â¦</div></div>
+    return <div className="view"><div className="card" style={{ padding: 60, textAlign: 'center', color: 'var(--muted)' }}>Loading order…</div></div>
   }
   if (!order) {
     return <div className="view"><div className="card" style={{ padding: 60, textAlign: 'center', color: 'var(--muted)' }}>Order not found.</div></div>
@@ -126,7 +126,7 @@ export default function AdminOrderDetailPage() {
 
   return (
     <div className="view">
-      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Header (hidden in print) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
+      {/* ── Header (hidden in print) ─────────────────────────────────────── */}
       <div className="no-print" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 18, gap: 12, flexWrap: 'wrap' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <Link to="/admin/orders" style={{
@@ -166,9 +166,9 @@ export default function AdminOrderDetailPage() {
         </div>
       </div>
 
-      {/* Ã¢â€â‚¬Ã¢â€â‚¬ PRINTABLE INVOICE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */}
+      {/* ── PRINTABLE INVOICE ─────────────────────────────────────────────── */}
       <div className="order-printable" id="order-printable">
-        {/* Print header Ã¢â‚¬â€ only shown in print */}
+        {/* Print header — only shown in print */}
         <div className="print-only print-header">
           <div>
             <div className="brand">Densova</div>
@@ -192,8 +192,8 @@ export default function AdminOrderDetailPage() {
                   <SectionLabel>Customer</SectionLabel>
                   <div style={{ fontSize: 15, fontWeight: 500, marginBottom: 6 }}>{order.customer_name}</div>
                   <div style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.7 }}>
-                    {order.customer_phone && <div>Ã°Å¸â€œÅ¾ {order.customer_phone}</div>}
-                    {order.customer_email && <div>Ã¢Å“â€°Ã¯Â¸Â {order.customer_email}</div>}
+                    {order.customer_phone && <div>📞 {order.customer_phone}</div>}
+                    {order.customer_email && <div>✉️ {order.customer_email}</div>}
                     {order.whatsapp_number && order.whatsapp_number !== order.customer_phone && (
                       <div>WhatsApp: {order.whatsapp_number}</div>
                     )}
@@ -216,7 +216,7 @@ export default function AdminOrderDetailPage() {
             {/* Items */}
             <div className="card" style={{ padding: 0, marginBottom: 16, overflow: 'hidden' }}>
               <div style={{ padding: '16px 20px 12px', borderBottom: '1px solid var(--line-2)' }}>
-                <SectionLabel>Items ({items.length} unique Ã‚Â· {itemsQty} total)</SectionLabel>
+                <SectionLabel>Items ({items.length} unique · {itemsQty} total)</SectionLabel>
               </div>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
                 <thead>
@@ -257,11 +257,11 @@ export default function AdminOrderDetailPage() {
                 value={notes} onChange={(e) => setNotes(e.target.value)}
                 rows={3}
                 style={{ width: '100%', padding: 10, border: '1px solid var(--line)', borderRadius: 6, fontSize: 13, fontFamily: 'var(--f-sans)', marginTop: 6, resize: 'vertical', boxSizing: 'border-box' }}
-                placeholder="Only visible to adminÃ¢â‚¬Â¦"
+                placeholder="Only visible to admin…"
               />
               <button onClick={saveNotes} disabled={saving} className="btn btn-ghost"
                 style={{ padding: '6px 12px', fontSize: 12, marginTop: 8 }}>
-                {saving ? 'SavingÃ¢â‚¬Â¦' : 'Save note'}
+                {saving ? 'Saving…' : 'Save note'}
               </button>
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function AdminOrderDetailPage() {
                 <SumRow label="Shipping" value={Number(order.shipping) > 0 ? fmt(order.shipping) : 'Free'} />
                 {Number(order.discount_amount) > 0 && (
                   <SumRow label={`Discount${order.discount_code ? ` (${order.discount_code})` : ''}`}
-                    value={'Ã¢Ë†â€™' + fmt(order.discount_amount)} color="#5a7c44" />
+                    value={'−' + fmt(order.discount_amount)} color="#5a7c44" />
                 )}
                 <div style={{
                   display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
@@ -329,7 +329,7 @@ export default function AdminOrderDetailPage() {
 
         {/* Print footer */}
         <div className="print-only print-footer">
-          <div>Thank you for choosing Densova Ã‚Â· densova.com</div>
+          <div>Thank you for choosing Densova · densova.com</div>
           <div>This is a computer-generated invoice and does not require a signature.</div>
         </div>
       </div>
@@ -337,7 +337,7 @@ export default function AdminOrderDetailPage() {
   )
 }
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Helpers Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Helpers ──────────────────────────────────────────────────────────────────
 const th = { padding: '10px 16px', textAlign: 'left', fontSize: 10, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--muted)' }
 const td = { padding: '12px 16px', verticalAlign: 'middle' }
 

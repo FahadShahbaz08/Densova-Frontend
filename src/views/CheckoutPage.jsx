@@ -85,7 +85,7 @@ export default function CheckoutPage() {
     setErrors((errs) => ({ ...errs, [field]: undefined }))
   }
 
-  // Empty cart Ã¢â€ â€™ bounce to shop
+  // Empty cart → bounce to shop
   useEffect(() => {
     if (items.length === 0 && !submitting) {
       // Don't redirect on submitting (cart cleared after successful order)
@@ -157,7 +157,7 @@ export default function CheckoutPage() {
     } catch (err) {
       const msg =
         err.response?.data?.errors
-          ? Object.values(err.response.data.errors).flat().join(' Ã‚Â· ')
+          ? Object.values(err.response.data.errors).flat().join(' · ')
           : err.response?.data?.message || 'Could not place the order. Please try again.'
       setServerError(msg)
       setSubmit(false)
@@ -267,13 +267,13 @@ export default function CheckoutPage() {
                       <span className="co-pay-title">Advance Half Payment</span>
                       <span className="co-pay-badge">{advancePct}% off</span>
                     </div>
-                    <p className="co-pay-help">JazzCash Ã‚Â· Easypaisa Ã‚Â· Bank Transfer Ã¢â‚¬â€ and save {advancePct}% on this order.</p>
+                    <p className="co-pay-help">JazzCash · Easypaisa · Bank Transfer — and save {advancePct}% on this order.</p>
 
                     {payment === 'advance' && (
                       <div className="co-pay-details">
                         {settings.jazzcash_enabled !== false && <PayAccount label="JazzCash"  value={settings.jazzcash_number}  sub={settings.jazzcash_title} />}
                         {settings.easypaisa_enabled !== false && <PayAccount label="Easypaisa" value={settings.easypaisa_number} sub={settings.easypaisa_title} />}
-                        {settings.bank_enabled !== false && <PayAccount label="Bank"      value={`${settings.bank_name} Ã¢â‚¬â€ ${settings.bank_account}`} sub={`Title: ${settings.bank_title}`} copyValue={settings.bank_account} />}
+                        {settings.bank_enabled !== false && <PayAccount label="Bank"      value={`${settings.bank_name} — ${settings.bank_account}`} sub={`Title: ${settings.bank_title}`} copyValue={settings.bank_account} />}
                         {settings.iban_enabled !== false && <PayAccount label="IBAN"      value={settings.bank_iban} />}
 
                         <p style={{ color: 'var(--muted)', fontSize: 13, margin: '12px 0', lineHeight: 1.7 }}>
@@ -313,7 +313,7 @@ export default function CheckoutPage() {
                       </span>
                       <div className="co-summary-name">
                         <strong>{i.name}</strong>
-                        <span>Qty {i.qty} Ã‚Â· {rs(i.price)}</span>
+                        <span>Qty {i.qty} · {rs(i.price)}</span>
                       </div>
                       <span style={{ fontFamily: 'var(--f-display)', fontSize: 16 }}>{rs(i.price * i.qty)}</span>
                     </li>
@@ -347,7 +347,7 @@ export default function CheckoutPage() {
 
                 <button type="submit" className="btn btn-gold" disabled={submitting}
                   style={{ width: '100%', justifyContent: 'center', marginTop: 18, padding: 18, opacity: submitting ? 0.6 : 1 }}>
-                  {submitting ? 'Placing orderÃ¢â‚¬Â¦' : `Place Order Ã‚Â· ${rs(total)}`}
+                  {submitting ? 'Placing order…' : `Place Order · ${rs(total)}`}
                   {!submitting && (
                     <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M13 5l7 7-7 7" />
@@ -382,7 +382,7 @@ function Field({ label, value, onChange, error, type = 'text', placeholder }) {
   )
 }
 
-function SearchableSelect({ label, value, onChange, error, options, placeholder = 'SelectÃ¢â‚¬Â¦' }) {
+function SearchableSelect({ label, value, onChange, error, options, placeholder = 'Select…' }) {
   const [open, setOpen]           = useState(false)
   const [query, setQuery]         = useState('')
   const [highlight, setHighlight] = useState(0)
@@ -456,7 +456,7 @@ function SearchableSelect({ label, value, onChange, error, options, placeholder 
               value={query}
               onChange={(e) => { setQuery(e.target.value); setHighlight(0) }}
               onKeyDown={onKeyDown}
-              placeholder={`Search ${label.replace(' *', '').toLowerCase()}Ã¢â‚¬Â¦`}
+              placeholder={`Search ${label.replace(' *', '').toLowerCase()}…`}
               aria-label={`Search ${label.replace(' *', '')}`}
             />
           </div>

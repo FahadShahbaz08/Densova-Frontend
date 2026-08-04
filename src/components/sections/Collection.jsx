@@ -16,7 +16,7 @@ const DEFAULT_HEAD = {
   eyebrow: 'The Collection',
   headline_a: 'A small atelier of',
   headline_em: 'essential rituals.',
-  sub: 'We make one thing at a time, and we make it slowly. Begin with our hero â€” and save with the ritual duo.',
+  sub: 'We make one thing at a time, and we make it slowly. Begin with our hero — and save with the ritual duo.',
 }
 
 // Different bottle finishes for visual variety between the two cards.
@@ -42,10 +42,10 @@ export function ProductCard({ product, index = 0 }) {
 
   // Subtitle: pillars from benefits + size string.
   const benefits = Array.isArray(product.benefits) && product.benefits.length
-    ? product.benefits.join(' Â· ')
+    ? product.benefits.join(' · ')
     : null
-  const sizeLabel = product.category === 'bundle' ? '2 Ã— 250 ml' : '250 ml'
-  const subtitle = benefits ? `${benefits} Â· ${sizeLabel}` : sizeLabel
+  const sizeLabel = product.category === 'bundle' ? '2 × 250 ml' : '250 ml'
+  const subtitle = benefits ? `${benefits} · ${sizeLabel}` : sizeLabel
 
   // Tag in the upper-left corner of the image.
   const tag = hasDiscount

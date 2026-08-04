@@ -30,7 +30,7 @@ const rs = (n) => 'Rs ' + Number(n).toLocaleString('en-PK')
 function Stars({ rating }) {
   return (
     <span className="stars" aria-label={`${rating} out of 5 stars`}>
-      {Array.from({ length: 5 }).map((_, i) => (i < rating ? 'ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦' : 'ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â ')).join(' ')}
+      {Array.from({ length: 5 }).map((_, i) => (i < rating ? '★' : '☆')).join(' ')}
     </span>
   )
 }
@@ -51,7 +51,7 @@ function Carousel({ images, name }) {
   return (
     <div className="pdp-gallery">
       <div className="pdp-main-img">
-        <img src={resolveImageUrl(images[active])} alt={`${name} ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â view ${active + 1}`} />
+        <img src={resolveImageUrl(images[active])} alt={`${name} — view ${active + 1}`} />
       </div>
       <div className="pdp-thumbs">
         {images.map((src, i) => (
@@ -157,9 +157,9 @@ export default function ProductDetailPage({ initialProduct = null }) {
         <div className="container" style={{ paddingTop: 28 }}>
           <nav aria-label="Breadcrumb" style={{ fontSize: 11, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--muted)' }}>
             <Link to="/" style={{ color: 'inherit' }}>Home</Link>
-            {' Ãƒâ€šÃ‚Â· '}
+            {' · '}
             <Link to="/#shop" style={{ color: 'inherit' }}>Shop</Link>
-            {' Ãƒâ€šÃ‚Â· '}
+            {' · '}
             <span style={{ color: 'var(--ink)' }}>{product.name}</span>
           </nav>
         </div>
@@ -175,7 +175,7 @@ export default function ProductDetailPage({ initialProduct = null }) {
 
               <div className="pdp-info">
                 <p className="pdp-cat">
-                  {product.category === 'bundle' ? 'Hair Ritual Ãƒâ€šÃ‚Â· Bundle' : 'Hair Ritual'}
+                  {product.category === 'bundle' ? 'Hair Ritual · Bundle' : 'Hair Ritual'}
                 </p>
                 <h1 className="pdp-title">{product.name}</h1>
                 {product.tagline && <p className="pdp-tagline">{product.tagline}</p>}
@@ -183,7 +183,7 @@ export default function ProductDetailPage({ initialProduct = null }) {
                 {product.reviews_count > 0 && (
                   <div className="pdp-rating">
                     <Stars rating={Math.round(product.average_rating)} />
-                    <span>{product.average_rating} Ãƒâ€šÃ‚Â· {product.reviews_count} reviews</span>
+                    <span>{product.average_rating} · {product.reviews_count} reviews</span>
                   </div>
                 )}
 
@@ -212,7 +212,7 @@ export default function ProductDetailPage({ initialProduct = null }) {
 
                 <div className="pdp-buy-row">
                   <div className="pdp-qty">
-                    <button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease">ÃƒÂ¢Ã‹â€ Ã¢â‚¬â„¢</button>
+                    <button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease">−</button>
                     <span>{qty}</span>
                     <button onClick={() => setQty((q) => Math.min(10, q + 1))} aria-label="Increase">+</button>
                   </div>
@@ -296,12 +296,12 @@ export default function ProductDetailPage({ initialProduct = null }) {
 
                   {/* Latest 6 reviews (limited from backend) */}
                   {(product.reviews || []).length === 0 ? (
-                    <p style={{ color: 'var(--muted)', marginBottom: 28 }}>No reviews yet ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â be the first to share your ritual.</p>
+                    <p style={{ color: 'var(--muted)', marginBottom: 28 }}>No reviews yet — be the first to share your ritual.</p>
                   ) : (
                     <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'grid', gap: 20 }}>
                       {product.reviews.map((r) => (
                         <li key={r.id} className="review-card in">
-                          <div className="review-stars">{Array.from({ length: r.rating }).map(() => 'ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦').join(' ')}</div>
+                          <div className="review-stars">{Array.from({ length: r.rating }).map(() => '★').join(' ')}</div>
                           {r.title && <h4 style={{ fontFamily: 'var(--f-display)', fontSize: 18, margin: '8px 0' }}>{r.title}</h4>}
                           <blockquote>&ldquo;{r.body}&rdquo;</blockquote>
                           {Array.isArray(r.images) && r.images.length > 0 && (
@@ -327,7 +327,7 @@ export default function ProductDetailPage({ initialProduct = null }) {
                   {product.reviews_count > (product.reviews?.length || 0) && (
                     <div className="pdp-reviews-more">
                       <Link to={`/shop/${product.slug}/reviews`} className="btn-link">
-                        View all {product.reviews_count.toLocaleString('en-PK')} reviews ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢
+                        View all {product.reviews_count.toLocaleString('en-PK')} reviews →
                       </Link>
                     </div>
                   )}

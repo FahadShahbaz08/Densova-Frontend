@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from '../../router'
 import { adminAPI } from '../../services/api'
 import { useAdminUI } from '../../components/admin/AdminContext'
 
-const fmtDateTime = (d) => d ? new Date(d).toLocaleString('en-PK', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'Ã¢â‚¬â€'
+const fmtDateTime = (d) => d ? new Date(d).toLocaleString('en-PK', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'
 
 // Icons
 const Icon = ({ d, w = 14 }) => (
@@ -19,12 +19,12 @@ const IconChevL = <Icon d={<polyline points="15 18 9 12 15 6"/>} w={22} />
 const IconChevR = <Icon d={<polyline points="9 18 15 12 9 6"/>} w={22} />
 const IconClose = <Icon d={<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>} w={20} />
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Stars display Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Stars display ─────────────────────────────────────────────────────────────
 function StarsBig({ value }) {
   return (
     <span style={{ display: 'inline-flex', gap: 2, fontSize: 22, letterSpacing: 1 }}>
       {[1, 2, 3, 4, 5].map(n => (
-        <span key={n} style={{ color: n <= value ? '#c9a24e' : 'var(--line)' }}>Ã¢Ëœâ€¦</span>
+        <span key={n} style={{ color: n <= value ? '#c9a24e' : 'var(--line)' }}>★</span>
       ))}
     </span>
   )
@@ -44,7 +44,7 @@ function StatusPill({ approved }) {
   )
 }
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Lightbox Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Lightbox ──────────────────────────────────────────────────────────────────
 function Lightbox({ images, startIndex, onClose }) {
   const [i, setI] = useState(startIndex)
   useEffect(() => {
@@ -76,12 +76,12 @@ function Lightbox({ images, startIndex, onClose }) {
           <button
             onClick={(e) => { e.stopPropagation(); setI((p) => (p - 1 + images.length) % images.length) }}
             style={iconBtnStyle({ pos: 'left' })}
-            title="Previous (Ã¢â€ Â)"
+            title="Previous (←)"
           >{IconChevL}</button>
           <button
             onClick={(e) => { e.stopPropagation(); setI((p) => (p + 1) % images.length) }}
             style={iconBtnStyle({ pos: 'right' })}
-            title="Next (Ã¢â€ â€™)"
+            title="Next (→)"
           >{IconChevR}</button>
         </>
       )}
@@ -115,7 +115,7 @@ function iconBtnStyle({ pos }) {
   return base
 }
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Main page Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Main page ─────────────────────────────────────────────────────────────────
 export default function AdminReviewDetailPage() {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -172,7 +172,7 @@ export default function AdminReviewDetailPage() {
   }
 
   if (loading) {
-    return <div className="view"><div className="card" style={{ padding: 60, textAlign: 'center', color: 'var(--muted)' }}>Loading reviewÃ¢â‚¬Â¦</div></div>
+    return <div className="view"><div className="card" style={{ padding: 60, textAlign: 'center', color: 'var(--muted)' }}>Loading review…</div></div>
   }
   if (!review) {
     return <div className="view"><div className="card" style={{ padding: 60, textAlign: 'center', color: 'var(--muted)' }}>Review not found.</div></div>
@@ -259,7 +259,7 @@ export default function AdminReviewDetailPage() {
                         fontSize: 9, fontWeight: 700, color: '#5a7c44',
                         background: 'rgba(124,154,100,0.14)', padding: '2px 7px',
                         borderRadius: 4, letterSpacing: '0.08em',
-                      }}>Ã¢Å“â€œ VERIFIED</span>
+                      }}>✓ VERIFIED</span>
                     )}
                   </div>
                   {review.email && <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 2 }}>{review.email}</div>}
@@ -307,13 +307,13 @@ export default function AdminReviewDetailPage() {
                 ))}
               </div>
               <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 10 }}>
-                Click any photo to view full size Ã‚Â· Arrow keys to navigate
+                Click any photo to view full size · Arrow keys to navigate
               </div>
             </div>
           )}
         </div>
 
-        {/* RIGHT Ã¢â‚¬â€ sidebar */}
+        {/* RIGHT — sidebar */}
         <div>
           <div className="card" style={{ padding: 20, marginBottom: 16 }}>
             <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 14 }}>
@@ -322,7 +322,7 @@ export default function AdminReviewDetailPage() {
 
             <Row label="Product" value={
               <Link to={`/admin/products`} style={{ color: 'var(--forest)', textDecoration: 'none', fontWeight: 500 }}>
-                {review.product_name || 'Ã¢â‚¬â€'}
+                {review.product_name || '—'}
               </Link>
             } />
             <Row label="Rating" value={`${review.rating} / 5`} />

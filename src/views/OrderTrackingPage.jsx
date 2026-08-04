@@ -79,7 +79,7 @@ export default function OrderTrackingPage() {
                 <p role="alert" style={{ color: '#b14a3c', fontSize: 13, marginBottom: 14 }}>{error}</p>
               )}
               <button type="submit" className="btn btn-gold" disabled={loading} style={{ width: '100%', justifyContent: 'center' }}>
-                {loading ? 'Looking upÃ¢â‚¬Â¦' : 'Track Order'}
+                {loading ? 'Looking up…' : 'Track Order'}
                 {!loading && (
                   <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
                 )}
@@ -121,7 +121,7 @@ export default function OrderTrackingPage() {
                   <div><span>Total</span><strong>{rs(order.total)}</strong></div>
                   {order.tracking_number && (
                     <>
-                      <div><span>Courier</span><strong>{order.courier || 'Ã¢â‚¬â€'}</strong></div>
+                      <div><span>Courier</span><strong>{order.courier || '—'}</strong></div>
                       <div><span>Tracking #</span><strong>{order.tracking_number}</strong></div>
                     </>
                   )}

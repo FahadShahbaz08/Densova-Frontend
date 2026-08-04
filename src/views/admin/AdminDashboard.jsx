@@ -131,7 +131,7 @@ export default function AdminDashboard() {
             ].map(({ label, value, warn }) => (
               <div key={label} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: '1px solid var(--line-2)' }}>
                 <span style={{ color: 'var(--muted)' }}>{label}</span>
-                <span style={{ fontFamily: 'var(--f-serif)', fontSize: 20, fontWeight: 400, color: warn ? 'var(--warn)' : 'var(--forest)' }}>{value ?? 'Ã¢â‚¬â€'}</span>
+                <span style={{ fontFamily: 'var(--f-serif)', fontSize: 20, fontWeight: 400, color: warn ? 'var(--warn)' : 'var(--forest)' }}>{value ?? '—'}</span>
               </div>
             ))}
           </div>

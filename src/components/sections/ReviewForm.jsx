@@ -20,7 +20,7 @@ function StarPicker({ value, onChange }) {
           onMouseEnter={() => setHover(n)}
           className={`star-picker-btn${n <= active ? ' on' : ''}`}
           aria-label={`${n} ${n === 1 ? 'star' : 'stars'}`}
-        >â˜…</button>
+        >★</button>
       ))}
       <span className="star-picker-label">
         {value ? `${value} of 5` : 'Tap a star'}
@@ -66,7 +66,7 @@ export default function ReviewForm({ product, onSubmitted }) {
             </svg>
           </Link>
           <Link to="/register" state={{ from: location.pathname }} className="btn-link">
-            Create an account â†’
+            Create an account →
           </Link>
         </div>
       </div>
@@ -99,7 +99,7 @@ export default function ReviewForm({ product, onSubmitted }) {
           </div>
         </div>
         <blockquote className="pdp-review-already-body">
-          <div className="review-stars">{'â˜…'.repeat(r.rating)}{'â˜†'.repeat(5 - r.rating)}</div>
+          <div className="review-stars">{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</div>
           {r.title && <strong>{r.title}</strong>}
           <p>&ldquo;{r.body}&rdquo;</p>
         </blockquote>
@@ -114,7 +114,7 @@ export default function ReviewForm({ product, onSubmitted }) {
     const remaining = MAX_IMAGES - images.length
     const toUpload = files.slice(0, remaining)
     if (files.length > remaining) {
-      setServerMsg(`Only ${MAX_IMAGES} photos allowed â€” first ${remaining} uploaded.`)
+      setServerMsg(`Only ${MAX_IMAGES} photos allowed — first ${remaining} uploaded.`)
       setStatus('error')
     }
     setUploading(true)
@@ -152,7 +152,7 @@ export default function ReviewForm({ product, onSubmitted }) {
     } catch (err) {
       setStatus('error')
       const msg = err.response?.data?.errors
-        ? Object.values(err.response.data.errors).flat().join(' Â· ')
+        ? Object.values(err.response.data.errors).flat().join(' · ')
         : err.response?.data?.message || 'Could not submit. Please try again.'
       setServerMsg(msg)
     }
@@ -207,7 +207,7 @@ export default function ReviewForm({ product, onSubmitted }) {
           {images.map((url, idx) => (
             <div key={idx} className="pdp-rf-photo">
               <img src={url} alt={`Review photo ${idx + 1}`} />
-              <button type="button" onClick={() => removeImage(idx)} title="Remove" aria-label="Remove photo">Ã—</button>
+              <button type="button" onClick={() => removeImage(idx)} title="Remove" aria-label="Remove photo">×</button>
             </div>
           ))}
           {images.length < MAX_IMAGES && (
@@ -229,7 +229,7 @@ export default function ReviewForm({ product, onSubmitted }) {
       {status === 'error' && serverMsg && <div className="pdp-rf-error">{serverMsg}</div>}
 
       <button type="submit" className="btn btn-gold" disabled={status === 'sending'}>
-        {status === 'sending' ? 'Submittingâ€¦' : 'Submit review'}
+        {status === 'sending' ? 'Submitting…' : 'Submit review'}
         {status !== 'sending' && (
           <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M13 5l7 7-7 7" />

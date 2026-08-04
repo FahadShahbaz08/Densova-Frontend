@@ -17,7 +17,7 @@ const CITIES = [
   'Sargodha', 'Mardan', 'Sheikhupura', 'Sahiwal',
 ]
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Icons Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Icons ──────────────────────────────────────────────────────────────────────
 const Icon = ({ d, w = 14 }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
        strokeLinecap="round" strokeLinejoin="round" style={{ width: w, height: w }}>
@@ -30,7 +30,7 @@ const IconTrash  = <Icon d={<><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2
 const IconSearch = <Icon d={<><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></>} />
 const IconSave   = <Icon d={<><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></>} />
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Product picker (searchable) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Product picker (searchable) ────────────────────────────────────────────────
 function ProductPicker({ products, onAdd }) {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
@@ -53,7 +53,7 @@ function ProductPicker({ products, onAdd }) {
           value={query}
           onChange={(e) => { setQuery(e.target.value); setOpen(true) }}
           onFocus={() => setOpen(true)}
-          placeholder="Search products to addÃ¢â‚¬Â¦"
+          placeholder="Search products to add…"
           style={{ flex: 1, border: 'none', outline: 'none', background: 'transparent', padding: '10px 0', fontSize: 13 }}
         />
       </div>
@@ -89,7 +89,7 @@ function ProductPicker({ products, onAdd }) {
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 13, fontWeight: 500 }}>{p.name}</div>
                   <div style={{ fontSize: 11, color: 'var(--muted)' }}>
-                    {p.category} Ã‚Â· Stock {p.stock}
+                    {p.category} · Stock {p.stock}
                   </div>
                 </div>
                 <div style={{ fontSize: 13, fontWeight: 500 }}>{fmt(p.price)}</div>
@@ -102,7 +102,7 @@ function ProductPicker({ products, onAdd }) {
   )
 }
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Form section helper Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Form section helper ────────────────────────────────────────────────────────
 function Section({ title, children, sub }) {
   return (
     <div className="card" style={{ padding: 20, marginBottom: 16 }}>
@@ -139,7 +139,7 @@ function SelectField({ label, value, onChange, options, required }) {
     <div>
       <label style={labelStyle}>{label}{required && <span style={{ color: 'var(--err)', marginLeft: 3 }}>*</span>}</label>
       <select value={value ?? ''} onChange={(e) => onChange(e.target.value)} style={inputStyle}>
-        <option value="">Ã¢â‚¬â€ Select Ã¢â‚¬â€</option>
+        <option value="">— Select —</option>
         {options.map(o => {
           const v = typeof o === 'object' ? o.value : o
           const l = typeof o === 'object' ? o.label : (o.charAt(0).toUpperCase() + o.slice(1).replace('_', ' '))
@@ -150,7 +150,7 @@ function SelectField({ label, value, onChange, options, required }) {
   )
 }
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Main page Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Main page ──────────────────────────────────────────────────────────────────
 export default function AdminOrderFormPage() {
   const navigate = useNavigate()
   const { id }   = useParams()
@@ -195,7 +195,7 @@ export default function AdminOrderFormPage() {
         ])
         setProducts(pRes.data?.data || [])
         if (isEdit && oRes?.data) {
-          // Laravel JsonResource wraps single resources in { data: {...} } Ã¢â‚¬â€ unwrap it
+          // Laravel JsonResource wraps single resources in { data: {...} } — unwrap it
           const o = oRes.data?.data || oRes.data
           const addr = o.shipping_address || {}
           setForm({
@@ -234,7 +234,7 @@ export default function AdminOrderFormPage() {
     init()
   }, [id, isEdit, showToast])
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Item handlers Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Item handlers ──────────────────────────────────────────────────────────
   const addItem = (product) => {
     setForm(f => {
       const existing = f.items.find(i => i.product_id === product.id)
@@ -257,7 +257,7 @@ export default function AdminOrderFormPage() {
   }
   const removeItem = (idx) => setForm(f => ({ ...f, items: f.items.filter((_, i) => i !== idx) }))
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Totals Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Totals ─────────────────────────────────────────────────────────────────
   const subtotal = useMemo(() => form.items.reduce((s, i) => s + i.unit_price * i.quantity, 0), [form.items])
   const total    = subtotal + Number(form.shipping || 0) - Number(form.discount_amount || 0)
 
@@ -273,7 +273,7 @@ export default function AdminOrderFormPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form.payment_method, subtotal])
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Validation + submit Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  // ── Validation + submit ────────────────────────────────────────────────────
   const validate = () => {
     const e = {}
     if (!form.customer_name.trim()) e.customer_name = 'Required'
@@ -327,7 +327,7 @@ export default function AdminOrderFormPage() {
       navigate(`/admin/orders/${orderId}/view`)
     } catch (err) {
       const msg = err.response?.data?.errors
-        ? Object.values(err.response.data.errors).flat().join(' Ã‚Â· ')
+        ? Object.values(err.response.data.errors).flat().join(' · ')
         : err.response?.data?.message || 'Failed to save order'
       showToast(msg, true)
     } finally {
@@ -336,7 +336,7 @@ export default function AdminOrderFormPage() {
   }
 
   if (loading) {
-    return <div className="view"><div className="card" style={{ padding: 60, textAlign: 'center', color: 'var(--muted)' }}>LoadingÃ¢â‚¬Â¦</div></div>
+    return <div className="view"><div className="card" style={{ padding: 60, textAlign: 'center', color: 'var(--muted)' }}>Loading…</div></div>
   }
 
   return (
@@ -360,12 +360,12 @@ export default function AdminOrderFormPage() {
         </div>
         <button onClick={handleSubmit} disabled={saving} className="btn btn-gold"
           style={{ padding: '10px 18px', fontSize: 13, gap: 6, opacity: saving ? 0.6 : 1 }}>
-          {IconSave} {saving ? 'SavingÃ¢â‚¬Â¦' : (isEdit ? 'Save changes' : 'Create order')}
+          {IconSave} {saving ? 'Saving…' : (isEdit ? 'Save changes' : 'Create order')}
         </button>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: 16, alignItems: 'start' }}>
-        {/* LEFT Ã¢â‚¬â€ main form */}
+        {/* LEFT — main form */}
         <div>
           <Section title="Customer">
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
@@ -457,19 +457,19 @@ export default function AdminOrderFormPage() {
                 <label style={labelStyle}>Customer note</label>
                 <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)}
                   rows={3} style={{ ...inputStyle, resize: 'vertical', minHeight: 70 }}
-                  placeholder="Visible delivery instructionsÃ¢â‚¬Â¦" />
+                  placeholder="Visible delivery instructions…" />
               </div>
               <div>
                 <label style={labelStyle}>Admin / internal note</label>
                 <textarea value={form.admin_notes} onChange={(e) => update('admin_notes', e.target.value)}
                   rows={3} style={{ ...inputStyle, resize: 'vertical', minHeight: 70 }}
-                  placeholder="Only visible to adminÃ¢â‚¬Â¦" />
+                  placeholder="Only visible to admin…" />
               </div>
             </div>
           </Section>
         </div>
 
-        {/* RIGHT Ã¢â‚¬â€ summary + payment */}
+        {/* RIGHT — summary + payment */}
         <div style={{ position: 'sticky', top: 16 }}>
           <Section title="Order Summary">
             <div style={{ fontSize: 13, display: 'flex', flexDirection: 'column', gap: 8 }}>

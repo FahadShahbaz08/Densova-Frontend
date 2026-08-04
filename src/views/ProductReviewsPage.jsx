@@ -26,7 +26,7 @@ function Stars({ value }) {
   return (
     <span style={{ display: 'inline-flex', gap: 1, color: '#c9a24e', fontSize: 13, letterSpacing: 1 }}>
       {[1, 2, 3, 4, 5].map(n => (
-        <span key={n} style={{ color: n <= value ? '#c9a24e' : 'var(--line)' }}>Ã¢Ëœâ€¦</span>
+        <span key={n} style={{ color: n <= value ? '#c9a24e' : 'var(--line)' }}>★</span>
       ))}
     </span>
   )
@@ -39,14 +39,14 @@ function Pagination({ page, lastPage, onChange }) {
   add(1); for (let i = page - 1; i <= page + 1; i++) add(i); add(lastPage)
   pages.sort((a, b) => a - b)
   const items = []
-  pages.forEach((p, i) => { if (i > 0 && p - pages[i - 1] > 1) items.push('Ã¢â‚¬Â¦'); items.push(p) })
+  pages.forEach((p, i) => { if (i > 0 && p - pages[i - 1] > 1) items.push('…'); items.push(p) })
   return (
     <div className="pr-pagination">
-      <button disabled={page === 1} onClick={() => onChange(page - 1)}>Ã¢â‚¬Â¹ Prev</button>
-      {items.map((it, i) => it === 'Ã¢â‚¬Â¦'
-        ? <span key={`e${i}`} className="pr-dot">Ã¢â‚¬Â¦</span>
+      <button disabled={page === 1} onClick={() => onChange(page - 1)}>‹ Prev</button>
+      {items.map((it, i) => it === '…'
+        ? <span key={`e${i}`} className="pr-dot">…</span>
         : <button key={it} className={it === page ? 'active' : ''} onClick={() => onChange(it)}>{it}</button>)}
-      <button disabled={page === lastPage} onClick={() => onChange(page + 1)}>Next Ã¢â‚¬Âº</button>
+      <button disabled={page === lastPage} onClick={() => onChange(page + 1)}>Next ›</button>
     </div>
   )
 }
@@ -90,7 +90,7 @@ export default function ProductReviewsPage({ initialData = null }) {
         <AnnouncementBar />
         <Navbar />
         <div className="container" style={{ padding: '80px 32px', textAlign: 'center', color: 'var(--muted)' }}>
-          Loading reviewsÃ¢â‚¬Â¦
+          Loading reviews…
         </div>
         <Footer />
       </>
@@ -112,7 +112,7 @@ export default function ProductReviewsPage({ initialData = null }) {
 
   return (
     <>
-      <SEOHead title={`Reviews Ã‚Â· ${product.name}`} description={`All customer reviews for ${product.name}`} />
+      <SEOHead title={`Reviews · ${product.name}`} description={`All customer reviews for ${product.name}`} />
       <ScrollProgress />
       <AnnouncementBar />
       <Navbar />
@@ -122,13 +122,13 @@ export default function ProductReviewsPage({ initialData = null }) {
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="pr-breadcrumb">
             <Link to="/">Home</Link>
-            {' Ã‚Â· '}
+            {' · '}
             <Link to={`/shop/${product.slug}`}>{product.name}</Link>
-            {' Ã‚Â· '}
+            {' · '}
             <span>Reviews</span>
           </nav>
 
-          {/* Header Ã¢â‚¬â€ product strip */}
+          {/* Header — product strip */}
           <div className="pr-header">
             {product.image_url ? (
               <img src={resolveImageUrl(product.image_url)} alt={product.name} className="pr-product-img" />
@@ -139,11 +139,11 @@ export default function ProductReviewsPage({ initialData = null }) {
               <div className="pr-product-eyebrow">Customer Reviews</div>
               <h1 className="pr-product-title">{product.name}</h1>
               {product.tagline && <p className="pr-product-tagline">{product.tagline}</p>}
-              <Link to={`/shop/${product.slug}`} className="btn-link">Ã¢â€ Â Back to product</Link>
+              <Link to={`/shop/${product.slug}`} className="btn-link">← Back to product</Link>
             </div>
           </div>
 
-          {/* Summary breakdown Ã¢â‚¬â€ click stars to filter */}
+          {/* Summary breakdown — click stars to filter */}
           {stats.total > 0 && (
             <div className="pr-breakdown-card">
               <RatingBreakdown
@@ -161,7 +161,7 @@ export default function ProductReviewsPage({ initialData = null }) {
             <div className="pr-toolbar-info">
               {ratingFilter ? (
                 <>
-                  Showing {ratingFilter}Ã¢Ëœâ€¦ reviews Ã¢â‚¬â€{' '}
+                  Showing {ratingFilter}★ reviews —{' '}
                   <button onClick={() => setRating(null)} className="btn-link pr-clear">clear filter</button>
                 </>
               ) : (
@@ -178,10 +178,10 @@ export default function ProductReviewsPage({ initialData = null }) {
 
           {/* Reviews list */}
           {loading ? (
-            <div className="pr-loading">LoadingÃ¢â‚¬Â¦</div>
+            <div className="pr-loading">Loading…</div>
           ) : reviews.length === 0 ? (
             <div className="pr-empty">
-              {ratingFilter ? `No ${ratingFilter}-star reviews yet.` : 'No reviews yet Ã¢â‚¬â€ be the first to share your ritual.'}
+              {ratingFilter ? `No ${ratingFilter}-star reviews yet.` : 'No reviews yet — be the first to share your ritual.'}
             </div>
           ) : (
             <ul className="pr-list">

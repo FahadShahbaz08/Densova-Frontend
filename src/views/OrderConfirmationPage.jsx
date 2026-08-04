@@ -59,7 +59,7 @@ Thank you!`
               </h1>
               <div className="oc-id">{orderNumber}</div>
               <p style={{ color: 'var(--muted)', maxWidth: 480, margin: '0 auto 24px' }}>
-                Thank you. Keep this order ID safe Ã¢â‚¬â€ you can use it any time to track your order.
+                Thank you. Keep this order ID safe — you can use it any time to track your order.
               </p>
               <Link to="/track-order" className="btn btn-gold">
                 Track this order
@@ -75,12 +75,12 @@ Thank you!`
               </div>
 
               <h1 style={{ fontFamily: 'var(--f-display)', fontWeight: 300, fontSize: 42, margin: '0 0 8px', letterSpacing: '-0.02em' }}>
-                Thank you{order?.customer_name ? `, ${order.customer_name.split(' ')[0]}` : ''} Ã¢â‚¬â€
+                Thank you{order?.customer_name ? `, ${order.customer_name.split(' ')[0]}` : ''} —
                 <br /><em style={{ background: 'var(--gold-grad)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', fontStyle: 'italic' }}>your ritual is on its way.</em>
               </h1>
 
               <p style={{ color: 'var(--muted)', maxWidth: 520, margin: '8px auto 4px' }}>
-                Your order is reserved. Keep this Order ID Ã¢â‚¬â€ you can track your order anytime.
+                Your order is reserved. Keep this Order ID — you can track your order anytime.
               </p>
               <div className="oc-id">{orderNumber}</div>
 
@@ -92,14 +92,14 @@ Thank you!`
                     <li>
                       Transfer <strong>{rs(order?.total ?? 0)}</strong> to any of the accounts below:
                       <div style={{ marginTop: 10, padding: 14, background: 'var(--cream-2)', borderRadius: 10, fontSize: 13 }}>
-                        {settings.jazzcash_enabled !== false && settings.jazzcash_number && <div>Ã°Å¸â€œÂ± <strong>JazzCash:</strong> {settings.jazzcash_number} Ã‚Â· {settings.jazzcash_title}</div>}
-                        {settings.easypaisa_enabled !== false && settings.easypaisa_number && <div>Ã°Å¸â€œÂ± <strong>Easypaisa:</strong> {settings.easypaisa_number} Ã‚Â· {settings.easypaisa_title}</div>}
-                        {settings.bank_enabled !== false && settings.bank_name && <div>Ã°Å¸ÂÂ¦ <strong>{settings.bank_name}:</strong> {settings.bank_account} ({settings.bank_title})</div>}
+                        {settings.jazzcash_enabled !== false && settings.jazzcash_number && <div>📱 <strong>JazzCash:</strong> {settings.jazzcash_number} · {settings.jazzcash_title}</div>}
+                        {settings.easypaisa_enabled !== false && settings.easypaisa_number && <div>📱 <strong>Easypaisa:</strong> {settings.easypaisa_number} · {settings.easypaisa_title}</div>}
+                        {settings.bank_enabled !== false && settings.bank_name && <div>🏦 <strong>{settings.bank_name}:</strong> {settings.bank_account} ({settings.bank_title})</div>}
                         {settings.iban_enabled !== false && settings.bank_iban && <div style={{ fontFamily: 'var(--f-mono)', fontSize: 12, marginTop: 4 }}>IBAN: {settings.bank_iban}</div>}
                       </div>
                     </li>
                     <li>
-                      Send the payment screenshot to our WhatsApp business number using the button below Ã¢â‚¬â€
+                      Send the payment screenshot to our WhatsApp business number using the button below —
                       include your Order ID so we can confirm quickly.
                     </li>
                   </ol>
@@ -110,7 +110,7 @@ Thank you!`
                   <ol>
                     <li>We&apos;ll call you shortly on <strong>{order?.customer_phone || 'your number'}</strong> to confirm your order.</li>
                     <li>Your order will be hand-packed and dispatched within 24 hours.</li>
-                    <li>Delivery typically arrives in <strong>3Ã¢â‚¬â€œ5 business days</strong>. Pay in cash on delivery.</li>
+                    <li>Delivery typically arrives in <strong>3–5 business days</strong>. Pay in cash on delivery.</li>
                   </ol>
                 </div>
               )}
@@ -132,7 +132,7 @@ Thank you!`
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 14 }}>
                     {(order.items || []).map((i) => (
                       <li key={i.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px dashed var(--line-2)' }}>
-                        <span>{i.product_name} Ãƒâ€” {i.quantity}</span>
+                        <span>{i.product_name} × {i.quantity}</span>
                         <span>{rs(i.line_total)}</span>
                       </li>
                     ))}
@@ -147,8 +147,8 @@ Thank you!`
               )}
 
               <div style={{ marginTop: 32, display: 'inline-flex', gap: 14, flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Link to="/" className="btn-link">Ã¢â€ Â Continue Shopping</Link>
-                <Link to="/track-order" className="btn-link">Track this Order Ã¢â€ â€™</Link>
+                <Link to="/" className="btn-link">← Continue Shopping</Link>
+                <Link to="/track-order" className="btn-link">Track this Order →</Link>
               </div>
             </div>
           )}

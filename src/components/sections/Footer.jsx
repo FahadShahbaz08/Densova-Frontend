@@ -1,14 +1,14 @@
 import { Link, useLocation, useNavigate } from '../../router'
 import { useContent } from '../../hooks/useContent'
 
-// â”€â”€ Smart link defaults â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Smart link defaults ───────────────────────────────────────────────────────
 // Hash anchors (#shop, #ingredients) scroll to homepage sections.
 // /shop/{slug} navigates to product detail pages.
 // mailto: and tel: open the user's mail / dialer app.
 // External URLs open in a new tab via target="_blank".
 const DEFAULT = {
   brand: 'Densova',
-  philosophy: 'We believe in old hands and good plants â€” in formulas earned through patience, and rituals returned, untouched, to a faster world.',
+  philosophy: 'We believe in old hands and good plants — in formulas earned through patience, and rituals returned, untouched, to a faster world.',
   social: {
     instagram: 'https://www.instagram.com/densova.official?igsh=MXQzdHQ0d3ozcXdqag%3D%3D',
     tiktok:    'https://www.tiktok.com/@densova.official?_r=1&_t=ZS-96XsqN8v2HN',
@@ -35,18 +35,18 @@ const DEFAULT = {
   care_title: 'Care',
   care_email: 'care@densova.com',
   care_phone: '+92 310 3789079',
-  care_hours: 'Mon â€” Sat, 10amâ€“6pm PKT',
-  copyright: 'Â© 2026 Densova Apothecary. All rights reserved.',
+  care_hours: 'Mon — Sat, 10am–6pm PKT',
+  copyright: '© 2026 Densova Apothecary. All rights reserved.',
   made: 'Made with care in Pakistan',
-  legal: 'Privacy Â· Terms Â· Returns',
+  legal: 'Privacy · Terms · Returns',
 }
 
-// â”€â”€ Detect link type and produce proper href â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Detect link type and produce proper href ──────────────────────────────────
 function linkProps(url) {
   if (!url) return { href: '#', onClick: (e) => e.preventDefault() }
   const isExternal = /^https?:\/\//i.test(url)
   if (isExternal) return { href: url, target: '_blank', rel: 'noopener noreferrer' }
-  // mailto: / tel: / hash anchors / internal routes â€” all use default href behaviour
+  // mailto: / tel: / hash anchors / internal routes — all use default href behaviour
   return { href: url }
 }
 
@@ -76,7 +76,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer-top">
-          {/* â”€â”€ Brand + philosophy + social â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* ── Brand + philosophy + social ─────────────────────────── */}
           <div className="footer-brand">
             <a href="#top" className="brand" onClick={(e) => handleHashNav(e, '#top')}>{c.brand || DEFAULT.brand}</a>
             <p className="footer-philosophy">&ldquo;{c.philosophy || DEFAULT.philosophy}&rdquo;</p>
@@ -115,7 +115,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* â”€â”€ Link columns â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* ── Link columns ────────────────────────────────────────── */}
           {columns.map((col, idx) => {
             let links = col.links
             if (typeof links === 'string') {
@@ -136,7 +136,7 @@ export default function Footer() {
             )
           })}
 
-          {/* â”€â”€ Care contact column â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* ── Care contact column ─────────────────────────────────── */}
           <div className="footer-col">
             <h4>{c.care_title || DEFAULT.care_title}</h4>
             {(c.care_email || DEFAULT.care_email) && (
@@ -163,14 +163,14 @@ export default function Footer() {
           <div>{c.copyright || DEFAULT.copyright}</div>
           <div className="made">{c.made || DEFAULT.made}</div>
           <div>
-            {(c.legal || DEFAULT.legal).split('Â·').map((part, i, arr) => {
+            {(c.legal || DEFAULT.legal).split('·').map((part, i, arr) => {
               const text = part.trim()
               return (
                 <span key={i}>
                   {/returns?/i.test(text)
                     ? <Link to="/returns" style={{ color: 'inherit' }}>{text}</Link>
                     : text}
-                  {i < arr.length - 1 && ' Â· '}
+                  {i < arr.length - 1 && ' · '}
                 </span>
               )
             })}

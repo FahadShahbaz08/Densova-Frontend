@@ -33,7 +33,7 @@ export default function AdminLoginPage() {
       background: 'var(--cream)', color: 'var(--ink)',
     }}>
 
-      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Left panel Ã¢â€â‚¬Ã¢â€â‚¬ */}
+      {/* ── Left panel ── */}
       <div style={{
         width: '45%', background: 'var(--forest-deep)', display: 'flex',
         flexDirection: 'column', justifyContent: 'space-between',
@@ -72,7 +72,7 @@ export default function AdminLoginPage() {
             "Old hands. Good plants. Slow rituals returned, untouched, to a faster world."
           </blockquote>
           <div style={{ marginTop: 18, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(232,203,138,0.5)' }}>
-            Ã¢â‚¬â€ The Densova Apothecary
+            — The Densova Apothecary
           </div>
         </div>
 
@@ -86,12 +86,12 @@ export default function AdminLoginPage() {
             <path d="M16 20L22 15" stroke="var(--gold)" strokeWidth="1"/>
           </svg>
           <div style={{ fontSize: 11, color: 'rgba(244,236,221,0.4)', lineHeight: 1.6 }}>
-            Botanical apothecary<br />Est. Pakistan Ã‚Â· 2024
+            Botanical apothecary<br />Est. Pakistan · 2024
           </div>
         </div>
       </div>
 
-      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Right panel Ã¢â€â‚¬Ã¢â€â‚¬ */}
+      {/* ── Right panel ── */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 48px' }}>
         <div style={{ width: '100%', maxWidth: 400 }}>
 
@@ -214,7 +214,7 @@ export default function AdminLoginPage() {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 16, height: 16, animation: 'spin 1s linear infinite' }}>
                     <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
                   </svg>
-                  Signing inÃ¢â‚¬Â¦
+                  Signing in…
                 </>
               ) : (
                 <>
@@ -230,7 +230,7 @@ export default function AdminLoginPage() {
           {/* Divider hint */}
           <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid var(--line-2)', textAlign: 'center' }}>
             <div style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.06em' }}>
-              Densova Ã‚Â· Admin v1.0 Ã‚Â· Pakistan
+              Densova · Admin v1.0 · Pakistan
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ function EmptyState({ onBrowse }) {
         <path d="M9 7V5a3 3 0 0 1 6 0v2" />
       </svg>
       <h4>Your cart is quiet.</h4>
-      <p>Begin a ritual â€” your selections will rest here.</p>
+      <p>Begin a ritual — your selections will rest here.</p>
       <button className="btn btn-ghost" onClick={onBrowse}>
         Browse Collection
       </button>
@@ -24,9 +24,9 @@ function EmptyState({ onBrowse }) {
   )
 }
 
-// Single line item â€” same DOM shape as the reference renderCart() output.
+// Single line item — same DOM shape as the reference renderCart() output.
 function CartItem({ item, onQty, onRemove }) {
-  const sizeLabel = item.category === 'bundle' ? '2 Ã— 250 ml' : '250 ml'
+  const sizeLabel = item.category === 'bundle' ? '2 × 250 ml' : '250 ml'
   return (
     <div className="cart-item">
       <div className="ci-img">
@@ -42,7 +42,7 @@ function CartItem({ item, onQty, onRemove }) {
         </p>
         <div className="ci-row">
           <div className="ci-qty">
-            <button onClick={() => onQty(item.id, item.qty - 1)} aria-label="Decrease">âˆ’</button>
+            <button onClick={() => onQty(item.id, item.qty - 1)} aria-label="Decrease">−</button>
             <span>{item.qty}</span>
             <button onClick={() => onQty(item.id, item.qty + 1)} aria-label="Increase">+</button>
           </div>
@@ -82,7 +82,7 @@ export default function CartDrawer() {
           <h3>
             Your Cart
             <span className="count">
-              {count > 0 ? ` Â· ${count} item${count > 1 ? 's' : ''}` : ''}
+              {count > 0 ? ` · ${count} item${count > 1 ? 's' : ''}` : ''}
             </span>
           </h3>
           <button className="drawer-close" onClick={close} aria-label="Close cart">

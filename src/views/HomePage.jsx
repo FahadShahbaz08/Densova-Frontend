@@ -31,7 +31,7 @@ export default function HomePage() {
   useReveal()
   const location = useLocation()
 
-  // When user arrives with a #hash (e.g. coming from /shop/slug ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ /#shop),
+  // When user arrives with a #hash (e.g. coming from /shop/slug → /#shop),
   // React Router doesn't auto-scroll to the anchor. Wait one tick for sections
   // to mount, then scroll to the target element.
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function HomePage() {
     '@type': 'Organization',
     name: 'Densova',
     url: SITE_URL,
-    description: 'Advanced Herbal Hair Infusion ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â botanical hair rituals, slow-pressed in small batches.',
+    description: 'Advanced Herbal Hair Infusion — botanical hair rituals, slow-pressed in small batches.',
     sameAs: ['https://instagram.com/densova'],
   }
 
@@ -68,7 +68,7 @@ export default function HomePage() {
     <>
       <SEOHead
         title={null}
-        description="Densova ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Advanced Herbal Hair Infusion. Eight botanicals, slow-pressed in small batches. Strength, growth, repair ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â inspired by nature."
+        description="Densova — Advanced Herbal Hair Infusion. Eight botanicals, slow-pressed in small batches. Strength, growth, repair — inspired by nature."
         url={SITE_URL}
         jsonLd={orgJsonLd}
       />

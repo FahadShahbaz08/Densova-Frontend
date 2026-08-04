@@ -109,7 +109,7 @@ export default function LoginPage({ mode = 'login' }) {
 
               <button type="submit" className="btn btn-gold auth-submit" disabled={status === 'loading'}>
                 {status === 'loading'
-                  ? (isRegister ? 'CreatingÃ¢â‚¬Â¦' : 'Signing inÃ¢â‚¬Â¦')
+                  ? (isRegister ? 'Creating…' : 'Signing in…')
                   : (isRegister ? 'Create Account' : 'Sign in')}
                 {status !== 'loading' && (
                   <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

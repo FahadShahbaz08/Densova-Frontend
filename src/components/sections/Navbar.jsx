@@ -29,12 +29,12 @@ export default function Navbar() {
   const c = useContent('content_navbar', DEFAULT)
   const links = Array.isArray(c.links) && c.links.length ? c.links : DEFAULT.links
 
-  // Hash links (#shop, #feature, â€¦) only work on the homepage. When the user
+  // Hash links (#shop, #feature, …) only work on the homepage. When the user
   // is on another route (e.g. /shop/slug), intercept the click, navigate to /,
   // and pass the hash. HomePage will scroll to it once mounted.
   const handleNavClick = (e, url) => {
     if (!url || !url.startsWith('#')) return
-    if (location.pathname === '/') return // homepage â†’ let browser scroll natively
+    if (location.pathname === '/') return // homepage → let browser scroll natively
     e.preventDefault()
     navigate('/' + url) // becomes /#shop, /#feature, etc.
   }
